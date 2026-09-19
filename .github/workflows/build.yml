@@ -1,0 +1,42 @@
+name: Build and Release APK
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+
+      - name: Extract version name
+        id: version
+        run: |
+          VERSION=$(grep versionName app/build.gradle | head -1 | sed "s/.*versionName[[:space:]]*['\"]\(.*\)['\"].*/\1/")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}-${{ github.run_number }}
+          name: Release v${{ steps.version.outputs.version }} (build ${{ github.run_number }})
+          files: app/build/outputs/apk/debug/app-debug.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

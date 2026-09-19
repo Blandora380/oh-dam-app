@@ -20,13 +20,13 @@
       "selection": {
         "end": {
           "column": 0,
-          "index": 0,
-          "line": 0
+          "index": 352,
+          "line": 16
         },
         "start": {
           "column": 0,
-          "index": 0,
-          "line": 0
+          "index": 326,
+          "line": 15
         }
       }
     },
@@ -76,5 +76,5 @@
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/src/main/kotlin/org/myapp/MainActivity.kt"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/build.gradle"
 }
