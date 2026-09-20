@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var radioLanguage: RadioGroup
     private lateinit var radioIndonesian: RadioButton
     private lateinit var radioEnglish: RadioButton
+    private lateinit var radioThai: RadioButton
+    private lateinit var radioChinese: RadioButton
 
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var btnGreet: Button
@@ -60,7 +62,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateLocale(context: Context, languageCode: String): Context {
-        val locale = Locale(languageCode)
+        val locale = if (languageCode == "zh") {
+            Locale("zh", "CN")
+        } else {
+            Locale(languageCode)
+        }
         Locale.setDefault(locale)
         val config = Configuration(context.resources.configuration)
         config.setLocale(locale)
@@ -99,6 +105,8 @@ class MainActivity : AppCompatActivity() {
         radioLanguage = findViewById(R.id.radioLanguage)
         radioIndonesian = findViewById(R.id.radioIndonesian)
         radioEnglish = findViewById(R.id.radioEnglish)
+        radioThai = findViewById(R.id.radioThai)
+        radioChinese = findViewById(R.id.radioChinese)
 
         bottomNav = findViewById(R.id.bottomNav)
         btnGreet = findViewById(R.id.btnGreet)
@@ -111,6 +119,8 @@ class MainActivity : AppCompatActivity() {
         val savedLang = prefs.getString("app_language", "en") ?: "en"
         radioEnglish.isChecked = savedLang == "en"
         radioIndonesian.isChecked = savedLang == "id"
+        radioThai.isChecked = savedLang == "th"
+        radioChinese.isChecked = savedLang == "zh"
 
         applyThemeInstantly(isDarkMode)
         switchDarkMode.isChecked = isDarkMode
@@ -148,7 +158,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         radioLanguage.setOnCheckedChangeListener { _, checkedId ->
-            val newLang = if (checkedId == R.id.radioEnglish) "en" else "id"
+            val newLang = when (checkedId) {
+                R.id.radioEnglish -> "en"
+                R.id.radioThai -> "th"
+                R.id.radioChinese -> "zh"
+                else -> "id"
+            }
             val currentLang = prefs.getString("app_language", "en") ?: "en"
             if (currentLang != newLang) {
                 prefs.edit().putString("app_language", newLang).apply()
@@ -187,6 +202,8 @@ class MainActivity : AppCompatActivity() {
         switchDarkMode.setTextColor(textColor)
         radioIndonesian.setTextColor(textColor)
         radioEnglish.setTextColor(textColor)
+        radioThai.setTextColor(textColor)
+        radioChinese.setTextColor(textColor)
         btnGreet.setTextColor(textColor)
         btnToast.setTextColor(textColor)
         btnReset.setTextColor(textColor)
@@ -226,6 +243,8 @@ class MainActivity : AppCompatActivity() {
             switchDarkMode.setTextColor(color)
             radioIndonesian.setTextColor(color)
             radioEnglish.setTextColor(color)
+            radioThai.setTextColor(color)
+            radioChinese.setTextColor(color)
             btnGreet.setTextColor(color)
             btnToast.setTextColor(color)
             btnReset.setTextColor(color)

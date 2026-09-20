@@ -97,7 +97,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
-            android:padding="24dp">
+            android:padding="24dp"
+            android:visibility="gone">
 
             <Switch
                 android:id="@+id/switchDarkMode"
@@ -131,6 +132,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/lang_english" />
+
+                <RadioButton
+                    android:id="@+id/radioThai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lang_thai" />
+
+                <RadioButton
+                    android:id="@+id/radioChinese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lang_chinese" />
 
             </RadioGroup>
 

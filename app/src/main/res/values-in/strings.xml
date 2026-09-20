@@ -21,6 +21,8 @@
     <string name="language_label">Bahasa</string>
     <string name="lang_indonesian">Bahasa Indonesia</string>
     <string name="lang_english">English</string>
+    <string name="lang_thai">ภาษาไทย</string>
+    <string name="lang_chinese">简体中文</string>
 
     <string name="about_title">Tentang Aplikasi Ini</string>
     <string name="about_version">Versi %s</string>

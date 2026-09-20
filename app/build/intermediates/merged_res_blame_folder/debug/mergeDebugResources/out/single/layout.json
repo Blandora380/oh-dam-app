@@ -1,14 +1,10 @@
 [
     {
-        "merged": "/data/user/0/com.tom.rv2ide/files/home/.gradle/daemon/9.0.0/org.myapp-mergeDebugResources-34:/layout/activity_main.xml",
-        "source": "/data/user/0/com.tom.rv2ide/files/home/.gradle/daemon/9.0.0/org.myapp-main-37:/layout/activity_main.xml"
+        "merged": "org.myapp-mergeDebugResources-34:/layout/activity_second.xml",
+        "source": "org.myapp-main-37:/layout/activity_second.xml"
     },
     {
         "merged": "org.myapp-mergeDebugResources-34:/layout/activity_main.xml",
         "source": "org.myapp-main-37:/layout/activity_main.xml"
-    },
-    {
-        "merged": "/data/user/0/com.tom.rv2ide/files/home/.gradle/daemon/9.0.0/org.myapp-mergeDebugResources-34:/layout/activity_second.xml",
-        "source": "/data/user/0/com.tom.rv2ide/files/home/.gradle/daemon/9.0.0/org.myapp-main-37:/layout/activity_second.xml"
     }
 ]

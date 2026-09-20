@@ -42,6 +42,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final EditText editName;
 
   @NonNull
+  public final RadioButton radioChinese;
+
+  @NonNull
   public final RadioButton radioEnglish;
 
   @NonNull
@@ -49,6 +52,9 @@ public final class ActivityMainBinding implements ViewBinding {
 
   @NonNull
   public final RadioGroup radioLanguage;
+
+  @NonNull
+  public final RadioButton radioThai;
 
   @NonNull
   public final LinearLayout rootLayout;
@@ -85,8 +91,9 @@ public final class ActivityMainBinding implements ViewBinding {
 
   private ActivityMainBinding(@NonNull LinearLayout rootView,
       @NonNull BottomNavigationView bottomNav, @NonNull Button btnGreet, @NonNull Button btnReset,
-      @NonNull Button btnToast, @NonNull EditText editName, @NonNull RadioButton radioEnglish,
-      @NonNull RadioButton radioIndonesian, @NonNull RadioGroup radioLanguage,
+      @NonNull Button btnToast, @NonNull EditText editName, @NonNull RadioButton radioChinese,
+      @NonNull RadioButton radioEnglish, @NonNull RadioButton radioIndonesian,
+      @NonNull RadioGroup radioLanguage, @NonNull RadioButton radioThai,
       @NonNull LinearLayout rootLayout, @NonNull LinearLayout sectionAbout,
       @NonNull LinearLayout sectionHome, @NonNull LinearLayout sectionSettings,
       @NonNull FrameLayout sectionShizuku, @NonNull Switch switchDarkMode,
@@ -99,9 +106,11 @@ public final class ActivityMainBinding implements ViewBinding {
     this.btnReset = btnReset;
     this.btnToast = btnToast;
     this.editName = editName;
+    this.radioChinese = radioChinese;
     this.radioEnglish = radioEnglish;
     this.radioIndonesian = radioIndonesian;
     this.radioLanguage = radioLanguage;
+    this.radioThai = radioThai;
     this.rootLayout = rootLayout;
     this.sectionAbout = sectionAbout;
     this.sectionHome = sectionHome;
@@ -172,6 +181,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.radioChinese;
+      RadioButton radioChinese = ViewBindings.findChildViewById(rootView, id);
+      if (radioChinese == null) {
+        break missingId;
+      }
+
       id = R.id.radioEnglish;
       RadioButton radioEnglish = ViewBindings.findChildViewById(rootView, id);
       if (radioEnglish == null) {
@@ -187,6 +202,12 @@ public final class ActivityMainBinding implements ViewBinding {
       id = R.id.radioLanguage;
       RadioGroup radioLanguage = ViewBindings.findChildViewById(rootView, id);
       if (radioLanguage == null) {
+        break missingId;
+      }
+
+      id = R.id.radioThai;
+      RadioButton radioThai = ViewBindings.findChildViewById(rootView, id);
+      if (radioThai == null) {
         break missingId;
       }
 
@@ -253,8 +274,8 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((LinearLayout) rootView, bottomNav, btnGreet, btnReset,
-          btnToast, editName, radioEnglish, radioIndonesian, radioLanguage, rootLayout,
-          sectionAbout, sectionHome, sectionSettings, sectionShizuku, switchDarkMode,
+          btnToast, editName, radioChinese, radioEnglish, radioIndonesian, radioLanguage, radioThai,
+          rootLayout, sectionAbout, sectionHome, sectionSettings, sectionShizuku, switchDarkMode,
           textAboutTitle, textAboutVersion, textGreeting, textLanguageLabel, textShizuku);
     }
     String missingId = rootView.getResources().getResourceName(id);

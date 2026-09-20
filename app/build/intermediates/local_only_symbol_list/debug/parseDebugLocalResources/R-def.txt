@@ -14,9 +14,11 @@ id nav_about
 id nav_home
 id nav_settings
 id nav_shizuku
+id radioChinese
 id radioEnglish
 id radioIndonesian
 id radioLanguage
+id radioThai
 id rootLayout
 id sectionAbout
 id sectionHome
@@ -45,8 +47,10 @@ string dark_mode_label
 string greeting_default
 string hello_format
 string hint_name
+string lang_chinese
 string lang_english
 string lang_indonesian
+string lang_thai
 string language_label
 string nav_about
 string nav_home

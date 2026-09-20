@@ -4035,9 +4035,11 @@ id pressed
 id progress_circular
 id progress_horizontal
 id radio
+id radioChinese
 id radioEnglish
 id radioIndonesian
 id radioLanguage
+id radioThai
 id ratio
 id rectangles
 id report_drawn
@@ -4468,8 +4470,10 @@ string hide_bottom_view_on_scroll_behavior
 string hint_name
 string icon_content_description
 string item_view_role_description
+string lang_chinese
 string lang_english
 string lang_indonesian
+string lang_thai
 string language_label
 string m3_exceed_max_badge_text_suffix
 string m3_loading_indicator_content_description

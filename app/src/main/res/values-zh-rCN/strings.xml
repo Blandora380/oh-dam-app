@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Oh Dam</string>
+
+    <string name="nav_home">主页</string>
+    <string name="nav_shizuku">Shizuku</string>
+    <string name="nav_settings">设置</string>
+    <string name="nav_about">关于</string>
+
+    <string name="greeting_default">你好，我是！</string>
+    <string name="hint_name">你叫什么名字？</string>
+    <string name="btn_greet">跟我打招呼</string>
+    <string name="btn_toast">显示提示</string>
+    <string name="btn_reset">重置</string>
+    <string name="toast_no_name">请先输入你的名字！</string>
+    <string name="toast_message">这是一条提示消息！</string>
+    <string name="hello_format">你好，%s！</string>
+
+    <string name="shizuku_section">呕，这谁啊 🤢</string>
+
+    <string name="dark_mode_label">深色模式</string>
+    <string name="language_label">语言</string>
+    <string name="lang_indonesian">Bahasa Indonesia</string>
+    <string name="lang_english">English</string>
+    <string name="lang_thai">ภาษาไทย</string>
+    <string name="lang_chinese">简体中文</string>
+
+    <string name="about_title">关于此应用</string>
+    <string name="about_version">版本 %s</string>
+</resources>
