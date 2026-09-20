@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_title">Tentang Aplikasi Ini</string>
+    <string name="about_version">Versi %s</string>
+    <string name="app_name">Oh Dam</string>
+    <string name="btn_greet">Sapa aku</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btn_toast">Tampilkan Toast</string>
+    <string name="dark_mode_label">Mode Gelap</string>
+    <string name="greeting_default">Halo dari The!</string>
+    <string name="hello_format">Halo, %s!</string>
+    <string name="hint_name">Siapa namamu?</string>
+    <string name="lang_english">English</string>
+    <string name="lang_indonesian">Bahasa Indonesia</string>
+    <string name="language_label">Bahasa</string>
+    <string name="nav_about">Tentang</string>
+    <string name="nav_home">Beranda</string>
+    <string name="nav_settings">Pengaturan</string>
+    <string name="nav_shizuku">Shizuku</string>
+    <string name="shizuku_section">yek siapa ini 🤢</string>
+    <string name="toast_message">Ini pesan Toast!</string>
+    <string name="toast_no_name">Mohon isi nama dulu!</string>
+</resources>

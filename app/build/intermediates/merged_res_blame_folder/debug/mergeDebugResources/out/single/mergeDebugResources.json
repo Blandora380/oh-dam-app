@@ -40,10 +40,6 @@
         "source": "/data/user/0/com.tom.rv2ide/files/home/.gradle/daemon/9.0.0/org.myapp-main-37:/mipmap-mdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "org.myapp-debug-35:/layout_activity_main.xml.flat",
-        "source": "org.myapp-main-37:/layout/activity_main.xml"
-    },
-    {
         "merged": "/data/user/0/com.tom.rv2ide/files/home/.gradle/daemon/9.0.0/org.myapp-debug-35:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
         "source": "/data/user/0/com.tom.rv2ide/files/home/.gradle/daemon/9.0.0/org.myapp-main-37:/mipmap-xxxhdpi/ic_launcher_foreground.png"
     },

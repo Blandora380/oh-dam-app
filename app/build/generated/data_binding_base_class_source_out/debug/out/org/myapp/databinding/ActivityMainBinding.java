@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -40,7 +42,19 @@ public final class ActivityMainBinding implements ViewBinding {
   public final EditText editName;
 
   @NonNull
+  public final RadioButton radioEnglish;
+
+  @NonNull
+  public final RadioButton radioIndonesian;
+
+  @NonNull
+  public final RadioGroup radioLanguage;
+
+  @NonNull
   public final LinearLayout rootLayout;
+
+  @NonNull
+  public final LinearLayout sectionAbout;
 
   @NonNull
   public final LinearLayout sectionHome;
@@ -55,29 +69,49 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Switch switchDarkMode;
 
   @NonNull
+  public final TextView textAboutTitle;
+
+  @NonNull
+  public final TextView textAboutVersion;
+
+  @NonNull
   public final TextView textGreeting;
+
+  @NonNull
+  public final TextView textLanguageLabel;
 
   @NonNull
   public final TextView textShizuku;
 
   private ActivityMainBinding(@NonNull LinearLayout rootView,
       @NonNull BottomNavigationView bottomNav, @NonNull Button btnGreet, @NonNull Button btnReset,
-      @NonNull Button btnToast, @NonNull EditText editName, @NonNull LinearLayout rootLayout,
+      @NonNull Button btnToast, @NonNull EditText editName, @NonNull RadioButton radioEnglish,
+      @NonNull RadioButton radioIndonesian, @NonNull RadioGroup radioLanguage,
+      @NonNull LinearLayout rootLayout, @NonNull LinearLayout sectionAbout,
       @NonNull LinearLayout sectionHome, @NonNull LinearLayout sectionSettings,
       @NonNull FrameLayout sectionShizuku, @NonNull Switch switchDarkMode,
-      @NonNull TextView textGreeting, @NonNull TextView textShizuku) {
+      @NonNull TextView textAboutTitle, @NonNull TextView textAboutVersion,
+      @NonNull TextView textGreeting, @NonNull TextView textLanguageLabel,
+      @NonNull TextView textShizuku) {
     this.rootView = rootView;
     this.bottomNav = bottomNav;
     this.btnGreet = btnGreet;
     this.btnReset = btnReset;
     this.btnToast = btnToast;
     this.editName = editName;
+    this.radioEnglish = radioEnglish;
+    this.radioIndonesian = radioIndonesian;
+    this.radioLanguage = radioLanguage;
     this.rootLayout = rootLayout;
+    this.sectionAbout = sectionAbout;
     this.sectionHome = sectionHome;
     this.sectionSettings = sectionSettings;
     this.sectionShizuku = sectionShizuku;
     this.switchDarkMode = switchDarkMode;
+    this.textAboutTitle = textAboutTitle;
+    this.textAboutVersion = textAboutVersion;
     this.textGreeting = textGreeting;
+    this.textLanguageLabel = textLanguageLabel;
     this.textShizuku = textShizuku;
   }
 
@@ -138,7 +172,31 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.radioEnglish;
+      RadioButton radioEnglish = ViewBindings.findChildViewById(rootView, id);
+      if (radioEnglish == null) {
+        break missingId;
+      }
+
+      id = R.id.radioIndonesian;
+      RadioButton radioIndonesian = ViewBindings.findChildViewById(rootView, id);
+      if (radioIndonesian == null) {
+        break missingId;
+      }
+
+      id = R.id.radioLanguage;
+      RadioGroup radioLanguage = ViewBindings.findChildViewById(rootView, id);
+      if (radioLanguage == null) {
+        break missingId;
+      }
+
       LinearLayout rootLayout = (LinearLayout) rootView;
+
+      id = R.id.sectionAbout;
+      LinearLayout sectionAbout = ViewBindings.findChildViewById(rootView, id);
+      if (sectionAbout == null) {
+        break missingId;
+      }
 
       id = R.id.sectionHome;
       LinearLayout sectionHome = ViewBindings.findChildViewById(rootView, id);
@@ -164,9 +222,27 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.textAboutTitle;
+      TextView textAboutTitle = ViewBindings.findChildViewById(rootView, id);
+      if (textAboutTitle == null) {
+        break missingId;
+      }
+
+      id = R.id.textAboutVersion;
+      TextView textAboutVersion = ViewBindings.findChildViewById(rootView, id);
+      if (textAboutVersion == null) {
+        break missingId;
+      }
+
       id = R.id.textGreeting;
       TextView textGreeting = ViewBindings.findChildViewById(rootView, id);
       if (textGreeting == null) {
+        break missingId;
+      }
+
+      id = R.id.textLanguageLabel;
+      TextView textLanguageLabel = ViewBindings.findChildViewById(rootView, id);
+      if (textLanguageLabel == null) {
         break missingId;
       }
 
@@ -177,8 +253,9 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((LinearLayout) rootView, bottomNav, btnGreet, btnReset,
-          btnToast, editName, rootLayout, sectionHome, sectionSettings, sectionShizuku,
-          switchDarkMode, textGreeting, textShizuku);
+          btnToast, editName, radioEnglish, radioIndonesian, radioLanguage, rootLayout,
+          sectionAbout, sectionHome, sectionSettings, sectionShizuku, switchDarkMode,
+          textAboutTitle, textAboutVersion, textGreeting, textLanguageLabel, textShizuku);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

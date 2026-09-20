@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">Oh Dam</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_shizuku">Shizuku</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_about">About</string>
+
+    <string name="greeting_default">Hello from The!</string>
+    <string name="hint_name">What is your name?</string>
+    <string name="btn_greet">Greet me</string>
+    <string name="btn_toast">Show Toast</string>
+    <string name="btn_reset">Reset</string>
+    <string name="toast_no_name">Please submit your name first!</string>
+    <string name="toast_message">This is a Toast message!</string>
+    <string name="hello_format">Hello, %s!</string>
+
+    <string name="shizuku_section">ew who is this 🤢</string>
+
+    <string name="dark_mode_label">Dark Mode</string>
+    <string name="language_label">Language</string>
+    <string name="lang_indonesian">Bahasa Indonesia</string>
+    <string name="lang_english">English</string>
+
+    <string name="about_title">About This App</string>
+    <string name="about_version">Version %s</string>
 </resources>

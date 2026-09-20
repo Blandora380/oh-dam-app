@@ -25,7 +25,7 @@
                 android:id="@+id/textGreeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hello from The!"
+                android:text="@string/greeting_default"
                 android:textSize="24sp" />
 
             <EditText
@@ -33,28 +33,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:hint="What is your name?" />
+                android:hint="@string/hint_name" />
 
             <Button
                 android:id="@+id/btnGreet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Greet me" />
+                android:text="@string/btn_greet" />
 
             <Button
                 android:id="@+id/btnToast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Show Toast" />
+                android:text="@string/btn_toast" />
 
             <Button
                 android:id="@+id/btnReset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Reset" />
+                android:text="@string/btn_reset" />
 
         </LinearLayout>
 
@@ -77,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:text="ew who is this 🤢"
+                    android:text="@string/shizuku_section"
                     android:textSize="24sp" />
 
                 <ImageView
@@ -97,13 +97,68 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
-            android:visibility="gone">
+            android:padding="24dp">
 
             <Switch
                 android:id="@+id/switchDarkMode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dark Mode" />
+                android:text="@string/dark_mode_label" />
+
+            <TextView
+                android:id="@+id/textLanguageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/language_label"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/radioLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
+
+                <RadioButton
+                    android:id="@+id/radioIndonesian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lang_indonesian" />
+
+                <RadioButton
+                    android:id="@+id/radioEnglish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lang_english" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <!-- Section: About -->
+        <LinearLayout
+            android:id="@+id/sectionAbout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textAboutTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_title"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/textAboutVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
