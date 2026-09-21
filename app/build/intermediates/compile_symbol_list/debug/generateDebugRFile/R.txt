@@ -4,6 +4,7 @@ int drawable ic_launcher_foreground 0x0
 int drawable shizuku 0x0
 int id bottomNav 0x0
 int id btnGreet 0x0
+int id btnPuzzle 0x0
 int id btnReset 0x0
 int id btnToast 0x0
 int id editName 0x0

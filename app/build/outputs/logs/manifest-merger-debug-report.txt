@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:2:1-23:12
-INJECTED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:2:1-23:12
-INJECTED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:2:1-23:12
-INJECTED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:2:1-23:12
+ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:2:1-26:12
 MERGED from [logsender.aar] /data/data/com.itsaky.androidide/files/home/.gradle/caches/9.6.1/transforms/53bb597f9a832be47ee335fc3cd1e50b/transformed/logsender/AndroidManifest.xml:18:1-45:12
 MERGED from [androidx.databinding:viewbinding:9.3.1] /data/data/com.itsaky.androidide/files/home/.gradle/caches/9.6.1/transforms/eda302e89dce83537adb1934a89b8693/transformed/viewbinding-9.3.1/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.13.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/9.6.1/transforms/24330651138d7edad83b2c42d112d21b/transformed/material-1.13.0/AndroidManifest.xml:17:1-24:12
@@ -115,8 +115,8 @@ ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidMan
 	android:name
 		ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:5:22-73
 application
-ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:6:5-21:19
-INJECTED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:6:5-21:19
+ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:6:5-24:19
+INJECTED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:6:5-24:19
 MERGED from [logsender.aar] /data/data/com.itsaky.androidide/files/home/.gradle/caches/9.6.1/transforms/53bb597f9a832be47ee335fc3cd1e50b/transformed/logsender/AndroidManifest.xml:32:5-43:19
 MERGED from [logsender.aar] /data/data/com.itsaky.androidide/files/home/.gradle/caches/9.6.1/transforms/53bb597f9a832be47ee335fc3cd1e50b/transformed/logsender/AndroidManifest.xml:32:5-43:19
 MERGED from [com.google.android.material:material:1.13.0] /data/data/com.itsaky.androidide/files/home/.gradle/caches/9.6.1/transforms/24330651138d7edad83b2c42d112d21b/transformed/material-1.13.0/AndroidManifest.xml:22:5-20
@@ -169,6 +169,12 @@ category#android.intent.category.LAUNCHER
 ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:18:17-77
 	android:name
 		ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:18:27-74
+activity#org.myapp.PuzzleActivity
+ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:21:9-23:40
+	android:exported
+		ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:23:13-37
+	android:name
+		ADDED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml:22:13-43
 uses-sdk
 INJECTED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml

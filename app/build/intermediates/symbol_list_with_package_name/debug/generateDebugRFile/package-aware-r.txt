@@ -5,6 +5,7 @@ drawable ic_launcher_foreground
 drawable shizuku
 id bottomNav
 id btnGreet
+id btnPuzzle
 id btnReset
 id btnToast
 id editName

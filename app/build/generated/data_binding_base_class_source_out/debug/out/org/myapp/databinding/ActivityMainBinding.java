@@ -34,6 +34,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button btnGreet;
 
   @NonNull
+  public final Button btnPuzzle;
+
+  @NonNull
   public final Button btnReset;
 
   @NonNull
@@ -94,19 +97,21 @@ public final class ActivityMainBinding implements ViewBinding {
   public final TextView textShizuku;
 
   private ActivityMainBinding(@NonNull LinearLayout rootView,
-      @NonNull BottomNavigationView bottomNav, @NonNull Button btnGreet, @NonNull Button btnReset,
-      @NonNull Button btnToast, @NonNull EditText editName, @NonNull RadioButton radioChinese,
-      @NonNull RadioButton radioEnglish, @NonNull RadioButton radioIndonesian,
-      @NonNull RadioGroup radioLanguage, @NonNull RadioButton radioThai,
-      @NonNull LinearLayout rootLayout, @NonNull LinearLayout sectionAbout,
-      @NonNull LinearLayout sectionHome, @NonNull ComposeView sectionLiquidGlass,
-      @NonNull LinearLayout sectionSettings, @NonNull FrameLayout sectionShizuku,
-      @NonNull Switch switchDarkMode, @NonNull TextView textAboutTitle,
-      @NonNull TextView textAboutVersion, @NonNull TextView textGreeting,
-      @NonNull TextView textLanguageLabel, @NonNull TextView textShizuku) {
+      @NonNull BottomNavigationView bottomNav, @NonNull Button btnGreet, @NonNull Button btnPuzzle,
+      @NonNull Button btnReset, @NonNull Button btnToast, @NonNull EditText editName,
+      @NonNull RadioButton radioChinese, @NonNull RadioButton radioEnglish,
+      @NonNull RadioButton radioIndonesian, @NonNull RadioGroup radioLanguage,
+      @NonNull RadioButton radioThai, @NonNull LinearLayout rootLayout,
+      @NonNull LinearLayout sectionAbout, @NonNull LinearLayout sectionHome,
+      @NonNull ComposeView sectionLiquidGlass, @NonNull LinearLayout sectionSettings,
+      @NonNull FrameLayout sectionShizuku, @NonNull Switch switchDarkMode,
+      @NonNull TextView textAboutTitle, @NonNull TextView textAboutVersion,
+      @NonNull TextView textGreeting, @NonNull TextView textLanguageLabel,
+      @NonNull TextView textShizuku) {
     this.rootView = rootView;
     this.bottomNav = bottomNav;
     this.btnGreet = btnGreet;
+    this.btnPuzzle = btnPuzzle;
     this.btnReset = btnReset;
     this.btnToast = btnToast;
     this.editName = editName;
@@ -165,6 +170,12 @@ public final class ActivityMainBinding implements ViewBinding {
       id = R.id.btnGreet;
       Button btnGreet = ViewBindings.findChildViewById(rootView, id);
       if (btnGreet == null) {
+        break missingId;
+      }
+
+      id = R.id.btnPuzzle;
+      Button btnPuzzle = ViewBindings.findChildViewById(rootView, id);
+      if (btnPuzzle == null) {
         break missingId;
       }
 
@@ -284,9 +295,9 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((LinearLayout) rootView, bottomNav, btnGreet, btnReset,
-          btnToast, editName, radioChinese, radioEnglish, radioIndonesian, radioLanguage, radioThai,
-          rootLayout, sectionAbout, sectionHome, sectionLiquidGlass, sectionSettings,
+      return new ActivityMainBinding((LinearLayout) rootView, bottomNav, btnGreet, btnPuzzle,
+          btnReset, btnToast, editName, radioChinese, radioEnglish, radioIndonesian, radioLanguage,
+          radioThai, rootLayout, sectionAbout, sectionHome, sectionLiquidGlass, sectionSettings,
           sectionShizuku, switchDarkMode, textAboutTitle, textAboutVersion, textGreeting,
           textLanguageLabel, textShizuku);
     }

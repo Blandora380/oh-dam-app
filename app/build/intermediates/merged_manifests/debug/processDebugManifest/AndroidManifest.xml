@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="4" android:versionName="1.1.0" package="org.myapp">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="5" android:versionName="1.2.0" package="org.myapp">
         
     <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="36"/>
         
@@ -36,6 +36,8 @@
             </intent-filter>
                     
         </activity>
+                
+        <activity android:exported="false" android:name="org.myapp.PuzzleActivity"/>
                 
         <provider android:authorities="org.myapp.logsender-installer" android:enabled="@bool/logsender_enabled" android:exported="false" android:name="com.itsaky.androidide.logsender.utils.LogSenderInstaller"/>
                 

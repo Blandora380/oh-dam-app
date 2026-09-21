@@ -1,5 +1,6 @@
 package org.myapp
 
+import android.view.Choreographer
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.EaseOut
 import androidx.compose.animation.core.Spring
@@ -71,20 +72,38 @@ import com.kyant.backdrop.shadow.InnerShadow
 import com.kyant.backdrop.shadow.Shadow
 import com.kyant.shapes.Capsule
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withContext
 import kotlin.math.abs
 import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sign
 import kotlin.math.sin
 import kotlin.math.tanh
+import kotlin.coroutines.resume
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
 import coil.compose.AsyncImage
+
+// ------------------------------------------------------------------
+// Frame helper (untuk awaitFrame di DampedDragAnimation.release())
+// ------------------------------------------------------------------
+private suspend fun awaitFrame() {
+    withContext(Dispatchers.Main.immediate) {
+        suspendCancellableCoroutine<Unit> { cont ->
+            val choreographer = Choreographer.getInstance()
+            val callback = Choreographer.FrameCallback { cont.resume(Unit) }
+            choreographer.postFrameCallback(callback)
+            cont.invokeOnCancellation { choreographer.removeFrameCallback(callback) }
+        }
+    }
+}
 
 // ------------------------------------------------------------------
 // Gesture helper
@@ -147,6 +166,7 @@ private suspend inline fun AwaitPointerEventScope.awaitDragOrUp(
 // ------------------------------------------------------------------
 class InteractiveHighlight(
     private val animationScope: CoroutineScope,
+    val enabled: () -> Boolean = { true },
     val position: (size: androidx.compose.ui.geometry.Size, offset: Offset) -> Offset = { _, offset -> offset }
 ) {
     private val pressProgressSpec = spring(0.5f, 300f, 0.001f)
@@ -161,7 +181,7 @@ class InteractiveHighlight(
     val offset: Offset get() = positionAnimation.value - startPosition
 
     val modifier: Modifier = Modifier.drawWithContent {
-        val progress = pressProgressAnimation.value
+        val progress = if (enabled()) pressProgressAnimation.value else 0f
         if (progress > 0f) {
             val pos = position(size, positionAnimation.value)
             drawRect(
@@ -207,7 +227,7 @@ class InteractiveHighlight(
 }
 
 // ------------------------------------------------------------------
-// DampedDragAnimation
+// DampedDragAnimation — identik referensi Kyant + guard NaN
 // ------------------------------------------------------------------
 @OptIn(ExperimentalTime::class)
 class DampedDragAnimation(
@@ -221,17 +241,28 @@ class DampedDragAnimation(
     val onDragStopped: DampedDragAnimation.() -> Unit,
     val onDrag: DampedDragAnimation.(size: IntSize, dragAmount: Offset) -> Unit,
 ) {
-    private val valueAnimationSpec = spring(1f, 1000f, visibilityThreshold)
-    private val velocityAnimationSpec = spring(0.5f, 300f, visibilityThreshold * 10f)
-    private val pressProgressAnimationSpec = spring(1f, 1000f, 0.001f)
-    private val scaleXAnimationSpec = spring(0.6f, 250f, 0.001f)
-    private val scaleYAnimationSpec = spring(0.7f, 250f, 0.001f)
 
-    private val valueAnimation = Animatable(initialValue, visibilityThreshold)
-    private val velocityAnimation = Animatable(0f, 5f)
-    private val pressProgressAnimation = Animatable(0f, 0.001f)
-    private val scaleXAnimation = Animatable(initialScale, 0.001f)
-    private val scaleYAnimation = Animatable(initialScale, 0.001f)
+    private val valueAnimationSpec =
+        spring(1f, 1000f, visibilityThreshold)
+    private val velocityAnimationSpec =
+        spring(0.5f, 300f, visibilityThreshold * 10f)
+    private val pressProgressAnimationSpec =
+        spring(1f, 1000f, 0.001f)
+    private val scaleXAnimationSpec =
+        spring(0.6f, 250f, 0.001f)
+    private val scaleYAnimationSpec =
+        spring(0.7f, 250f, 0.001f)
+
+    private val valueAnimation =
+        Animatable(initialValue, visibilityThreshold)
+    private val velocityAnimation =
+        Animatable(0f, 5f)
+    private val pressProgressAnimation =
+        Animatable(0f, 0.001f)
+    private val scaleXAnimation =
+        Animatable(initialScale, 0.001f)
+    private val scaleYAnimation =
+        Animatable(initialScale, 0.001f)
 
     private val mutatorMutex = MutatorMutex()
     private val velocityTracker = VelocityTracker()
@@ -258,7 +289,7 @@ class DampedDragAnimation(
                 onDragStopped()
                 release()
             }
-        ) { _, dragAmount ->
+        ) { change, dragAmount ->
             onDrag(size, dragAmount)
         }
     }
@@ -274,6 +305,7 @@ class DampedDragAnimation(
 
     fun release() {
         animationScope.launch {
+            awaitFrame()
             if (value != targetValue) {
                 val threshold = (valueRange.endInclusive - valueRange.start) * 0.025f
                 snapshotFlow { valueAnimation.value }
@@ -313,6 +345,8 @@ class DampedDragAnimation(
             Offset(value, 0f)
         )
         val targetVelocity = velocityTracker.calculateVelocity().x / (valueRange.endInclusive - valueRange.start)
+        // Guard: skip kalau tracker belum punya cukup sample (fix "berat di awal")
+        if (targetVelocity.isNaN() || targetVelocity.isInfinite()) return
         animationScope.launch { velocityAnimation.animateTo(targetVelocity, velocityAnimationSpec) }
     }
 }
@@ -686,6 +720,8 @@ fun LiquidBottomTabs(
         val isLtr = LocalLayoutDirection.current == LayoutDirection.Ltr
         val animationScope = rememberCoroutineScope()
         var currentIndex by remember(selectedTabIndex) { mutableIntStateOf(selectedTabIndex()) }
+        var isDragging by remember { mutableStateOf(false) }
+
         val dampedDragAnimation = remember(animationScope) {
             DampedDragAnimation(
                 animationScope = animationScope,
@@ -694,8 +730,9 @@ fun LiquidBottomTabs(
                 visibilityThreshold = 0.001f,
                 initialScale = 1f,
                 pressedScale = 78f / 56f,
-                onDragStarted = {},
+                onDragStarted = { isDragging = true },
                 onDragStopped = {
+                    isDragging = false
                     val targetIndex = targetValue.fastRoundToInt().fastCoerceIn(0, tabsCount - 1)
                     currentIndex = targetIndex
                     animateToValue(targetIndex.toFloat())
@@ -710,6 +747,16 @@ fun LiquidBottomTabs(
                 }
             )
         }
+
+        // Highlight container hanya nyala saat drag (bukan tap)
+        val dragHighlightProgress = remember { Animatable(0f) }
+        LaunchedEffect(isDragging) {
+            dragHighlightProgress.animateTo(
+                targetValue = if (isDragging) 1f else 0f,
+                animationSpec = spring(0.5f, 300f, 0.001f)
+            )
+        }
+
         LaunchedEffect(selectedTabIndex) {
             snapshotFlow { selectedTabIndex() }.collectLatest { index -> currentIndex = index }
         }
@@ -741,16 +788,22 @@ fun LiquidBottomTabs(
                     shape = { Capsule() },
                     effects = {
                         vibrancy()
-                        blur(8.dp.toPx())
+                        blur(4.dp.toPx())
                         lens(24.dp.toPx(), 24.dp.toPx())
                     },
                     layerBlock = {
-                        val progress = dampedDragAnimation.pressProgress
+                        val progress = dragHighlightProgress.value
                         val scale = lerp(1f, 1f + 16.dp.toPx() / size.width, progress)
                         scaleX = scale
                         scaleY = scale
                     },
-                    onDrawSurface = { drawRect(containerColor) }
+                    onDrawSurface = {
+                        drawRect(containerColor)
+                        val progress = dragHighlightProgress.value
+                        if (progress > 0f) {
+                            drawRect(Color.White.copy(alpha = 0.2f * progress))
+                        }
+                    }
                 )
                 .then(interactiveHighlight.modifier)
                 .height(64.dp)
