@@ -14,6 +14,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.compose.ui.platform.ComposeView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -66,6 +67,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final LinearLayout sectionHome;
 
   @NonNull
+  public final ComposeView sectionLiquidGlass;
+
+  @NonNull
   public final LinearLayout sectionSettings;
 
   @NonNull
@@ -95,11 +99,11 @@ public final class ActivityMainBinding implements ViewBinding {
       @NonNull RadioButton radioEnglish, @NonNull RadioButton radioIndonesian,
       @NonNull RadioGroup radioLanguage, @NonNull RadioButton radioThai,
       @NonNull LinearLayout rootLayout, @NonNull LinearLayout sectionAbout,
-      @NonNull LinearLayout sectionHome, @NonNull LinearLayout sectionSettings,
-      @NonNull FrameLayout sectionShizuku, @NonNull Switch switchDarkMode,
-      @NonNull TextView textAboutTitle, @NonNull TextView textAboutVersion,
-      @NonNull TextView textGreeting, @NonNull TextView textLanguageLabel,
-      @NonNull TextView textShizuku) {
+      @NonNull LinearLayout sectionHome, @NonNull ComposeView sectionLiquidGlass,
+      @NonNull LinearLayout sectionSettings, @NonNull FrameLayout sectionShizuku,
+      @NonNull Switch switchDarkMode, @NonNull TextView textAboutTitle,
+      @NonNull TextView textAboutVersion, @NonNull TextView textGreeting,
+      @NonNull TextView textLanguageLabel, @NonNull TextView textShizuku) {
     this.rootView = rootView;
     this.bottomNav = bottomNav;
     this.btnGreet = btnGreet;
@@ -114,6 +118,7 @@ public final class ActivityMainBinding implements ViewBinding {
     this.rootLayout = rootLayout;
     this.sectionAbout = sectionAbout;
     this.sectionHome = sectionHome;
+    this.sectionLiquidGlass = sectionLiquidGlass;
     this.sectionSettings = sectionSettings;
     this.sectionShizuku = sectionShizuku;
     this.switchDarkMode = switchDarkMode;
@@ -225,6 +230,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.sectionLiquidGlass;
+      ComposeView sectionLiquidGlass = ViewBindings.findChildViewById(rootView, id);
+      if (sectionLiquidGlass == null) {
+        break missingId;
+      }
+
       id = R.id.sectionSettings;
       LinearLayout sectionSettings = ViewBindings.findChildViewById(rootView, id);
       if (sectionSettings == null) {
@@ -275,8 +286,9 @@ public final class ActivityMainBinding implements ViewBinding {
 
       return new ActivityMainBinding((LinearLayout) rootView, bottomNav, btnGreet, btnReset,
           btnToast, editName, radioChinese, radioEnglish, radioIndonesian, radioLanguage, radioThai,
-          rootLayout, sectionAbout, sectionHome, sectionSettings, sectionShizuku, switchDarkMode,
-          textAboutTitle, textAboutVersion, textGreeting, textLanguageLabel, textShizuku);
+          rootLayout, sectionAbout, sectionHome, sectionLiquidGlass, sectionSettings,
+          sectionShizuku, switchDarkMode, textAboutTitle, textAboutVersion, textGreeting,
+          textLanguageLabel, textShizuku);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

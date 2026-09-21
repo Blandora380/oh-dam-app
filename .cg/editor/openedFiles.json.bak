@@ -1,0 +1,21 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/CodeOnTheGoProjects/MyApp/gradle/libs.versions.toml",
+      "selection": {
+        "end": {
+          "column": 12,
+          "index": 23,
+          "line": 1
+        },
+        "start": {
+          "column": 12,
+          "index": 23,
+          "line": 1
+        }
+      }
+    }
+  ],
+  "projectPath": "/storage/emulated/0/CodeOnTheGoProjects/MyApp",
+  "selectedFile": "/storage/emulated/0/CodeOnTheGoProjects/MyApp/gradle/libs.versions.toml"
+}

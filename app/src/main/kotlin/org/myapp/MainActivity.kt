@@ -16,8 +16,14 @@ import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.platform.ComposeView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.Locale
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.getValue
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rootLayout: android.widget.LinearLayout
     private lateinit var sectionHome: android.view.View
     private lateinit var sectionShizuku: android.view.View
+    private lateinit var sectionLiquidGlass: ComposeView
     private lateinit var sectionSettings: android.view.View
     private lateinit var sectionAbout: android.view.View
 
@@ -91,8 +98,24 @@ class MainActivity : AppCompatActivity() {
         rootLayout = findViewById(R.id.rootLayout)
         sectionHome = findViewById(R.id.sectionHome)
         sectionShizuku = findViewById(R.id.sectionShizuku)
+        sectionLiquidGlass = findViewById(R.id.sectionLiquidGlass)
         sectionSettings = findViewById(R.id.sectionSettings)
         sectionAbout = findViewById(R.id.sectionAbout)
+
+        sectionLiquidGlass.setContent {
+            var pickedImageUri by remember { mutableStateOf<android.net.Uri?>(null) }
+
+            val pickImageLauncher = rememberLauncherForActivityResult(
+                contract = androidx.activity.result.contract.ActivityResultContracts.GetContent()
+            ) { uri ->
+                pickedImageUri = uri
+            }
+
+            LiquidGlassDemoScreen(
+                imageUri = pickedImageUri,
+                onPickImageClick = { pickImageLauncher.launch("image/*") }
+            )
+        }
 
         textGreeting = findViewById(R.id.textGreeting)
         textShizuku = findViewById(R.id.textShizuku)
@@ -181,6 +204,7 @@ class MainActivity : AppCompatActivity() {
     private fun showSectionById(itemId: Int) {
         sectionHome.visibility = if (itemId == R.id.nav_home) android.view.View.VISIBLE else android.view.View.GONE
         sectionShizuku.visibility = if (itemId == R.id.nav_shizuku) android.view.View.VISIBLE else android.view.View.GONE
+        sectionLiquidGlass.visibility = if (itemId == R.id.nav_liquid_glass) android.view.View.VISIBLE else android.view.View.GONE
         sectionSettings.visibility = if (itemId == R.id.nav_settings) android.view.View.VISIBLE else android.view.View.GONE
         sectionAbout.visibility = if (itemId == R.id.nav_about) android.view.View.VISIBLE else android.view.View.GONE
     }

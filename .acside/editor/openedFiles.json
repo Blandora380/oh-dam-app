@@ -1,110 +1,20 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/src/main/res/values-th/strings.xml",
+      "file": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/src/main/kotlin/org/myapp/LiquidGlassDemo.kt",
       "selection": {
         "end": {
-          "column": 53,
-          "index": 734,
-          "line": 17
+          "column": 1,
+          "index": 20182,
+          "line": 517
         },
         "start": {
-          "column": 53,
-          "index": 734,
-          "line": 17
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/src/main/res/values-zh-rCN/strings.xml",
-      "selection": {
-        "end": {
-          "column": 43,
-          "index": 653,
-          "line": 17
-        },
-        "start": {
-          "column": 43,
-          "index": 653,
-          "line": 17
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/src/main/res/values/strings.xml",
-      "selection": {
-        "end": {
-          "column": 4,
-          "index": 1022,
-          "line": 24
-        },
-        "start": {
-          "column": 4,
-          "index": 1022,
-          "line": 24
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/src/main/res/values-in/strings.xml",
-      "selection": {
-        "end": {
-          "column": 4,
-          "index": 1007,
-          "line": 24
-        },
-        "start": {
-          "column": 4,
-          "index": 1007,
-          "line": 24
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/src/main/res/layout/activity_main.xml",
-      "selection": {
-        "end": {
-          "column": 15,
-          "index": 6773,
-          "line": 185
-        },
-        "start": {
-          "column": 15,
-          "index": 6773,
-          "line": 185
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/src/main/kotlin/org/myapp/MainActivity.kt",
-      "selection": {
-        "end": {
-          "column": 59,
-          "index": 3543,
-          "line": 88
-        },
-        "start": {
-          "column": 59,
-          "index": 3543,
-          "line": 88
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/build.gradle",
-      "selection": {
-        "end": {
-          "column": 26,
-          "index": 352,
-          "line": 15
-        },
-        "start": {
-          "column": 26,
-          "index": 352,
-          "line": 15
+          "column": 1,
+          "index": 20182,
+          "line": 517
         }
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/build.gradle"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/MyApp/app/src/main/kotlin/org/myapp/LiquidGlassDemo.kt"
 }

@@ -90,6 +90,13 @@
 
         </FrameLayout>
 
+        <!-- Section: Liquid Glass -->
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/sectionLiquidGlass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
         <!-- Section: Settings -->
         <LinearLayout
             android:id="@+id/sectionSettings"

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "org.myapp-mergeDebugResources-33:/values-v16/values-v16.xml",
+            "outputFile": "org.myapp-mergeDebugResources-53:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.0.0/transforms/7847e69fe0e2f893173fa4cb79aa4139/transformed/appcompat-1.7.1/res/values-v16/values-v16.xml",
+                    "source": "/data/data/com.itsaky.androidide/files/home/.gradle/caches/9.6.1/transforms/b90ef3f7f59940726433e1f397114044/transformed/appcompat-1.7.1/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

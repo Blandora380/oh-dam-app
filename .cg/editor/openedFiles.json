@@ -1,0 +1,81 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/CodeOnTheGoProjects/MyApp/gradle/libs.versions.toml",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/CodeOnTheGoProjects/MyApp/build.gradle",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/CodeOnTheGoProjects/MyApp/app/build.gradle",
+      "selection": {
+        "end": {
+          "column": 50,
+          "index": 1432,
+          "line": 50
+        },
+        "start": {
+          "column": 50,
+          "index": 1432,
+          "line": 50
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/kotlin/org/myapp/LiquidGlassDemo.kt",
+      "selection": {
+        "end": {
+          "column": 1,
+          "index": 39191,
+          "line": 926
+        },
+        "start": {
+          "column": 1,
+          "index": 39191,
+          "line": 926
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/CodeOnTheGoProjects/MyApp/app/src/main/AndroidManifest.xml",
+      "selection": {
+        "end": {
+          "column": 16,
+          "index": 295,
+          "line": 5
+        },
+        "start": {
+          "column": 16,
+          "index": 295,
+          "line": 5
+        }
+      }
+    }
+  ],
+  "projectPath": "/storage/emulated/0/CodeOnTheGoProjects/MyApp",
+  "selectedFile": "/storage/emulated/0/CodeOnTheGoProjects/MyApp/app/build.gradle"
+}

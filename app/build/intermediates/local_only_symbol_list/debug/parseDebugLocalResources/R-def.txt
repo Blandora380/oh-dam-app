@@ -5,13 +5,13 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable shizuku
 id bottomNav
-id btnBack
 id btnGreet
 id btnReset
 id btnToast
 id editName
 id nav_about
 id nav_home
+id nav_liquid_glass
 id nav_settings
 id nav_shizuku
 id radioChinese
@@ -22,6 +22,7 @@ id radioThai
 id rootLayout
 id sectionAbout
 id sectionHome
+id sectionLiquidGlass
 id sectionSettings
 id sectionShizuku
 id switchDarkMode
@@ -30,9 +31,7 @@ id textAboutVersion
 id textGreeting
 id textLanguageLabel
 id textShizuku
-id textWelcome
 layout activity_main
-layout activity_second
 menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_foreground
