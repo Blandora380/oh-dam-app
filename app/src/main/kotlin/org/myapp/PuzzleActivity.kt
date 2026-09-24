@@ -383,7 +383,7 @@ fun PuzzleScreen() {
                     if (row == gridRows - 1) {
                         0
                     } else {
-                        hEdges[row + 1][col]
+                        -hEdges[row + 1][col]
                     }
 
                 val left =
@@ -397,7 +397,7 @@ fun PuzzleScreen() {
                     if (col == gridColumns - 1) {
                         0
                     } else {
-                        vEdges[row][col + 1]
+                        -vEdges[row][col + 1]
                     }
 
                 val pieceBitmap =
